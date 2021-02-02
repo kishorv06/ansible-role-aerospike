@@ -59,6 +59,7 @@ Using a managed configuration file
 
     aerospike_namespaces:
       - name: default
+        memory_size: 2
 
 Controls namespace configuration of the Aerospike server.
 See [Aerospike namespace configuration](http://www.aerospike.com/docs/operations/configure/namespace/) for details.
@@ -129,4 +130,5 @@ Author Information
 ------------------
 
 Original Author: Matt Plachter
+
 Current Maintainer: Kishor V
