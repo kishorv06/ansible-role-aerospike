@@ -1,3 +1,0 @@
----
-aerospike_distro_download: el6
-aerospike_config_destination: /etc/aerospike/aerospike.conf
