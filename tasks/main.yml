@@ -12,6 +12,10 @@
     path: "{{ aerospike_log_directory }}"
     state: directory
 
+- name: Install dependencies
+  apt:
+    name: python3-distutils
+
 ## Aerospike site does not have SSL
 - name: Download Aerospike package.
   unarchive:
