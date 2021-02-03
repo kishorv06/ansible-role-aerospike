@@ -43,7 +43,7 @@ Optional variables
 Namespace Example Configuration
 -------------------------------
 ```yaml
-namespace:
+aerospike_namespaces:
   - name: default
     replication_factor: 2
     memory_size: 2
