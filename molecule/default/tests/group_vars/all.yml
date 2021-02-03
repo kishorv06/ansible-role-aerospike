@@ -1,0 +1,16 @@
+---
+aerospike_access_address: "{{ ansible_default_ipv4.address }}"
+
+# Download and Service Vars
+aerospike_boot_enabled: true
+aerospike_version: 5.4.0.4
+aerospike_source_directory: /usr/local/src
+aerospike_log_directory: /var/log/aerospike
+
+# Aerospike configuration Vars
+aerospike_service_threads: 2
+aerospike_proto_fd_max: 15000
+aerospike_proto_fd_idle_ms: 60000
+aerospike_heartbeat_interval: 250
+aerospike_heartbeat_timeout: 10
+paxos_single_replica_limit: 1

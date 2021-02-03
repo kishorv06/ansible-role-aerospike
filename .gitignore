@@ -3,6 +3,6 @@
 .vagrant
 .cache
 .settings
-tests/__pycache__
+molecule/default/tests/__pycache__
 test_default.pyc
 venv
