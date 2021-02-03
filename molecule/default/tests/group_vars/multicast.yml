@@ -1,0 +1,18 @@
+---
+## Cluster configuration
+aerospike_cluster_size: 1
+aerospike_multicast_group: 239.1.99.2
+aerospike_multicast_port: 9917
+
+## Namespace configuration Vars
+aerospike_namespaces:
+  - name: default
+    storage_engine:
+      files:
+        - /opt/aerospike/data/file1
+      filesize: 2
+      scheduler_mode: noop
+      write_block_size: 128K
+      data_in_memory: false
+    storage_ttl: 30
+    memory_size: 2

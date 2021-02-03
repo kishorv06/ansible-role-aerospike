@@ -1,16 +1,15 @@
 Ansible Role: Aerospike
 =========
 
-[![Ansible Role](https://img.shields.io/ansible/role/19856.svg)](https://galaxy.ansible.com/mplachter/aerospike/) [![Build Status](https://travis-ci.org/mplachter/ansible-role-aerospike.svg?branch=master)](https://travis-ci.org/mplachter/ansible-role-aerospike)
+[![Ansible Role](https://img.shields.io/ansible/role/52933.svg)](https://galaxy.ansible.com/kishorv06/aerospike/) [![Build Status](https://travis-ci.org/kishorv06/ansible-role-aerospike.svg?branch=master)](https://travis-ci.org/kishorv06/ansible-role-aerospike)
 
-Ansible role to install and configure [Aerospike](http://www.aerospike.com/) on CentOS (6/7) and Debian (Jessie\Wheezy) Linux.
+Ansible role to install and configure [Aerospike](http://www.aerospike.com/) on Linux.
 
 Requirements
 ------------
 
 * Ansible 2.3+
-* CentOS 6+
-* Debian Wheezy\Jessie
+* Debian 9+
 
 Role Variables
 --------------
@@ -62,6 +61,7 @@ Using a managed configuration file
 
     aerospike_namespaces:
       - name: default
+        memory_size: 2
 
 Controls namespace configuration of the Aerospike server.
 See [Aerospike namespace configuration](http://www.aerospike.com/docs/operations/configure/namespace/) for details.
@@ -96,18 +96,6 @@ Above is an example of configuring 3 namespaces using attached devices, files, a
 Controls the number of threads receiving client requests on the network interface.
 [service-threads Docs](http://www.aerospike.com/docs/reference/configuration/#service-threads)
 
-    aerospike_transaction_queues: 4
-
-Controls the number of transaction queues managing client requests.
-Service threads will dispatch transactions into those queues.
-[transaction-queues Docs](http://www.aerospike.com/docs/reference/configuration/#transaction-queues)
-
-    aerospike_transaction_threads: 4
-
-Controls the number of threads per transaction queue. 
-Those threads will consume the requests from the the transaction queues.
-[transaction-threads Docs](http://www.aerospike.com/docs/reference/configuration/#transaction-threads-per-queue)
-
     aerospike_mesh_seed_addresses:
       - 127.0.0.1
 
@@ -133,12 +121,7 @@ Example Playbook
     ---
     - hosts: all
       roles:
-         - mplachter.aerospike
-
-Testing
--------
-
-This role is tested through [Molecule](http://molecule.readthedocs.io/en/stable-1.25/configuration.html)
+         - aerospike
 
 License
 -------
@@ -148,4 +131,6 @@ MIT
 Author Information
 ------------------
 
-Matt Plachter
+Original Author: Matt Plachter
+
+Current Maintainer: Kishor V

@@ -8,8 +8,6 @@ service {
         pidfile /var/run/aerospike/asd.pid
         paxos-single-replica-limit {{ paxos_single_replica_limit | default(1) }} # Number of nodes where the replica count is automatically reduced to 1.
         service-threads {{ aerospike_service_threads }}
-        transaction-queues {{ aerospike_transaction_queues }}
-        transaction-threads-per-queue {{ aerospike_transaction_threads }}
         proto-fd-max {{ aerospike_proto_fd_max | default(15000) }}
         proto-fd-idle-ms {{ aerospike_proto_fd_idle_ms | default(60000) }}
 }
@@ -66,6 +64,7 @@ namespace {{ namespace.name }} {
         high-water-memory-pct {{ namespace.high_water_memory_pct | default(60) }}
         high-water-disk-pct {{ namespace.high_water_disk_pct | default(50) }}
         default-ttl {{ namespace.storage_ttl | default(4) }}d # 30 days, use 0 to never expire/evict.
+        nsup-period {{ namespace.nsup_period | default("30m") }} 
 
     {% if namespace.storage_engine is defined %}
         storage-engine device {

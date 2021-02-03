@@ -1,0 +1,9 @@
+---
+## Cluster configuration
+aerospike_cluster_size: 3
+aerospike_mesh_seed_addresses: "{{ groups['mesh_cluster'] | map('extract',hostvars, ['ansible_default_ipv4','address']) | list}}"
+
+## Namespace configuration Vars
+aerospike_namespaces:
+  - name: default
+    memory_size: 1

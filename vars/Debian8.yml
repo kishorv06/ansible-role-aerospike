@@ -1,3 +1,0 @@
----
-aerospike_distro_download: debian8
-aerospike_config_destination: /etc/aerospike/aerospike.conf
