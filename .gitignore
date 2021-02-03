@@ -6,3 +6,4 @@
 molecule/default/tests/__pycache__
 test_default.pyc
 venv
+.yamllint
