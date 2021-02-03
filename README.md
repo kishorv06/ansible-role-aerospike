@@ -1,6 +1,8 @@
 Ansible Role: Aerospike
 =========
 
+[![Build Status](https://travis-ci.org/kishorv06/ansible-role-aerospike.svg?branch=master)](https://travis-ci.org/kishorv06/ansible-role-aerospike)
+
 Ansible role to install and configure [Aerospike](http://www.aerospike.com/) on Linux.
 
 Requirements
