@@ -8,7 +8,6 @@ galaxy_info:
       versions:
         - buster
         - stretch
-        - jessie
   galaxy_tags:
     - database
     - aerospike

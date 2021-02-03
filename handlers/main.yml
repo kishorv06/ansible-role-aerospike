@@ -1,16 +1,7 @@
 ---
-- name: Start aerospike service
+- name: Restart aerospike service
   systemd:
     name: aerospike
     state: restarted
     enabled: yes
-  listen: start aerospike
-
-- name: Make Sure Cluster Memembership Is Correct
-  command: asinfo --no-config-file
-  register: asinfo_output
-  until: asinfo_output.stdout.find("cluster_size=" ~ aerospike_cluster_size ) != -1
-  retries: 100
-  delay: 5
-  ignore_errors: true
-  listen: start aerospike
+  listen: restart aerospike

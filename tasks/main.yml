@@ -14,7 +14,8 @@
 
 - name: Install dependencies
   apt:
-    name: python3-distutils
+    name: "{{ aerospike_dependencies[ ( ansible_os_family | lower ) ~ ansible_distribution_major_version ] }}"
+    update_cache: True
 
 ## Aerospike site does not have SSL
 - name: Download Aerospike package.
@@ -37,4 +38,22 @@
     group: root
     force: yes
   notify:
-    - start aerospike
+    - restart aerospike
+
+- name: Flush handlers
+  meta: flush_handlers
+
+- name: Make sure Aerospike is started
+  systemd:
+    name: aerospike
+    state: started
+    enabled: yes
+
+- name: Make Sure Cluster Memembership Is Correct
+  command: asinfo --no-config-file
+  register: asinfo_output
+  until: asinfo_output.stdout.find("cluster_size=" ~ aerospike_cluster_size) != -1
+  retries: 100
+  delay: 5
+  ignore_errors: true
+  changed_when: False

@@ -7,7 +7,7 @@ Requirements
 ------------
 
 * Ansible 2.3+
-* Debian 8+
+* Debian 9+
 
 Role Variables
 --------------
