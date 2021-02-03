@@ -1,7 +1,7 @@
 Ansible Role: Aerospike
 =========
 
-[![Ansible Role](https://img.shields.io/ansible/role/52934.svg)](https://galaxy.ansible.com/kishorv06/aerospike/) [![Build Status](https://travis-ci.org/kishorv06/ansible-role-aerospike.svg?branch=master)](https://travis-ci.org/kishorv06/ansible-role-aerospike)
+[![Ansible Role](https://img.shields.io/ansible/role/52934.svg)](https://galaxy.ansible.com/kishorv06/aerospike/) [![Build Status](https://travis-ci.com/kishorv06/ansible-role-aerospike.svg?branch=master)](https://travis-ci.com/kishorv06/ansible-role-aerospike)
 
 Ansible role to install and configure [Aerospike](http://www.aerospike.com/).
 
