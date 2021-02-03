@@ -25,10 +25,22 @@
     remote_src: True
     validate_certs: no
 
-- name: Install Aerospike Packages
-  command:
-    cmd: ./asinstall
-    chdir: "{{ aerospike_source_directory }}/{{ aerospike_package_name }}/"
+- name: Get Names of Aerospike DEB Packages.
+  find:
+    paths:
+      - "{{ aerospike_source_directory }}/{{ aerospike_package_name }}"
+    patterns: "^(aerospike-(?:server|tools).+\\.deb)$"
+    use_regex: true
+  register: aerospike_debs
+
+- name: Install Aerospike packages.
+  apt:
+    deb: "{{ item.path }}"
+    install_recommends: yes
+  with_items:
+    - "{{ aerospike_debs.files }}"
+  notify:
+    - restart aerospike
 
 - name: Place Aerospike configuration file.
   template:
