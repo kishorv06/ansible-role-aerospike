@@ -71,11 +71,12 @@ None.
 
 Example Playbook
 ----------------
-
-    ---
-    - hosts: all
-      roles:
-         - kishorv06.aerospike
+```yaml
+---
+- hosts: all
+  roles:
+      - kishorv06.aerospike
+```
 
 License
 -------
