@@ -9,10 +9,9 @@ before_install:
   - sudo apt-get -qq update
 
 install:
-  - pip install "molecule==3.2.3"
+  - pip install "molecule[docker]==3.2.3"
   - pip install -U "ansible==2.10.4"
   - pip install "pytest-testinfra==6.1.0" "pytest==6.2.2"
-  - pip install "docker=0.2.4"
 
 script:
   - molecule test
